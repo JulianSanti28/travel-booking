@@ -1,0 +1,84 @@
+{% extends "travel_booking/layout.html" %}
+{% load static %}
+
+{% block script %}
+<script src="{% static 'travel_booking/reserva.js' %}"></script>
+
+{%endblock %}
+
+{% block main%}
+<div style="margin-left: 20%;">
+    <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+            <label for="origin" class="form-label">Origin</label>
+            <select id="origin" class="form-select">
+                {% for airport in airports%}
+                <option id={{airport.id}}>{{airport}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <label for="destination" class="form-label">Destination</label>
+            <select id="destination" class="form-select">
+                {% for airport in airports%}
+                <option id={{airport.id}}>{{airport}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-7">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="round_trip">
+                <label class="form-check-label" for="round_trip">
+                    Round trip
+                </label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="one_way">
+                <label class="form-check-label" for="one_way">
+                    One way
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-7">
+            <label for="inputAddress2" class="form-label">Go</label>
+            <input type="date" class="form-control" id="go" required>
+        </div>
+        <div class="col-md-6 col-lg-7">
+            <label for="inputCity" class="form-label">Return</label>
+            <input type="date" class="form-control" id="return" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" id="btn_filtro_1">Continue</button>
+        </div>
+
+    </div>
+    <br>
+</div>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col-2">Id</th>
+            <th scope="col-2">Origin</th>
+            <th scope="col-2">Destination<th>
+            <th scope="col-2">Duration</th>
+            <th scope="col-2">Capacity</th>
+            <th scope="col-2">Price</th>
+        </tr>
+    </thead>
+    <tbody id="lst_vuelos">
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+{% endblock %}

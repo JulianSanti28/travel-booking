@@ -1,0 +1,58 @@
+{% extends "travel_booking/layout.html" %}
+{% load static %}
+
+{% block main%}
+
+
+<!--Info Ciudad-->
+<div class="col-sm-4 col-lg-12" id={{city.id}}>
+    <img src={{city.imagen.url}} class="card-img-top" alt={{city.name}}>
+    <div class="card" style="height: 400px; overflow: auto; overflow:-x;">
+        <div class="card-body text-center">
+            <h5 class="card-title">{{city.name}}</h5>
+            <h5 class="card-title">{{city.code}}</h5>
+            <h6 class="card-title">Country: {{city.country.name}} - {{city.country.code}}</h6>
+            <p class="card-text ">{{city.description}}</p>
+        </div>
+    </div>
+</div>
+<!--/Info Ciudad-->
+
+<!--Hoteles de la Ciudad-->
+
+
+<div class="row">
+
+    {% for hotel in hoteles %}
+
+    {% if cantidad > 3%}
+    <div class="col-sm-4 col-lg-3" id={{hotel.id}}>
+        {% else %}
+
+        <div class="col-sm-4 col-lg-4" id={{hotel.id}}>
+            {% endif %}
+            <img src={{hotel.imagen.url}} class="card-img-top" alt={{hotel.name}}>
+
+            <div class="card" style="height: 470px; overflow: auto; overflow:-x;">
+                <div class="card-body text-center">
+                    <h5  class="card-title">{{hotel.name}}</h5>
+                    <h5 class="card-title">{{hotel.id}}</h5>
+                    <h6 class="card-title">City: {{hotel.city.name}} - {{hotel.city.code}}</h6>
+                    <p class="card-text ">{{hotel.description}}</p>
+
+                    <a href="#" class="btn btn-dark">Reserve now</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+
+    <!--/Hoteles de la Ciudad-->
+
+
+
+
+    {% endblock %}

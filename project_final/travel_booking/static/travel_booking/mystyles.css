@@ -1,0 +1,30 @@
+
+.text-contacto{
+    color:  #b9e5ff !important; 
+}
+
+#footer{
+    background: linear-gradient(90deg, #7ccbf3, #355264 25%, #64c6ff);
+    
+    
+}
+#footer a{
+    color: white;
+    
+
+}
+
+#header img{
+    width: 80px;
+}
+
+/*De la clase con id img, tome todos los img dentro del elemento que usa la clase carousel-inner*/
+
+#main .carousel-inner img{
+    /*70% del alto de la pantalla*/
+    max-height: 65vh;
+    /*Mantiene la proporción original de la imagen*/
+    object-fit: cover;
+    /*Filtro*/
+    /*filter:grayscale(78%)*/
+}
